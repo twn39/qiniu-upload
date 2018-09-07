@@ -1,8 +1,11 @@
 {
-  "name": "qiniu-upload",
-  "version": "1.0.0",
+  "name": "qiniu.upload",
+  "version": "1.0.1",
   "main": "dist/QiniuUpload.js",
   "author": "Weinan tang",
+  "description": "A qiniu sdk for uploading file.",
+  "repository": "twn39/qiniu-upload",
+  "homepage": "https://github.com/twn39/qiniu-upload",
   "license": "MIT",
   "devDependencies": {
     "jest": "^23.5.0"
