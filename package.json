@@ -1,7 +1,7 @@
 {
   "name": "qiniu-upload",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/QiniuUpload.js",
   "author": "Weinan tang",
   "license": "MIT",
   "devDependencies": {

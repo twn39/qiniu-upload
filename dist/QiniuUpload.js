@@ -31,4 +31,4 @@ var QiniuUpload = (function () {
     };
     return QiniuUpload;
 }());
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=QiniuUpload.js.map
