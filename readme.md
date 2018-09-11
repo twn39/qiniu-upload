@@ -2,6 +2,17 @@
 
 七牛前端上传SDK，小文件上传，基于qiniu表单上传api构建，无任何依赖，1.3KB文件大小。
 
+#### 安装
+
+```
+npm i @twn39/qiniu-upload
+```
+或者
+
+```
+yarn add @twn39/qiniu-upload
+```
+
 #### 使用
 
 ```js
