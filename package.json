@@ -1,6 +1,6 @@
 {
   "name": "@twn39/qiniu-upload",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/QiniuUpload.js",
   "author": "Weinan tang",
   "description": "A qiniu sdk for uploading file.",
