@@ -1,4 +1,12 @@
-var QiniuUpload = /** @class */ (function () {
+var UploadFile = (function () {
+    function UploadFile(file, name) {
+        if (name === void 0) { name = ''; }
+        this.file = file;
+        this.name = name;
+    }
+    return UploadFile;
+}());
+var QiniuUpload = (function () {
     function QiniuUpload() {
         this.REMOTE_URL = '//up.qbox.me';
     }
@@ -14,24 +22,27 @@ var QiniuUpload = /** @class */ (function () {
             }
             _this.fetchToken().then(function (token) {
                 var filename = key === '' ? file.name : key;
-                // @ts-ignore
                 var formData = new FormData();
                 formData.append('file', file);
                 formData.append('token', token);
                 formData.append('key', filename);
-                // @ts-ignore
                 var xhr = new XMLHttpRequest();
                 xhr.open('POST', _this.REMOTE_URL, true);
                 xhr.send(formData);
                 xhr.onreadystatechange = function () {
-                    // @ts-ignore
                     if (xhr.readyState === XMLHttpRequest.DONE) {
-                        // @ts-ignore
                         resolve(JSON.parse(xhr.responseText));
                     }
                 };
             });
         });
+    };
+    QiniuUpload.prototype.multiupload = function (files) {
+        var _this = this;
+        var farray = files.map(function (file) {
+            return _this.upload(file.file, file.name);
+        });
+        return Promise.all(farray);
     };
     return QiniuUpload;
 }());

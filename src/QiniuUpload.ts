@@ -1,6 +1,17 @@
-class QiniuUpload implements UploadInterface {
+export class UploadFile {
 
-    private REMOTE_URL: string = '//up.qbox.me';
+    file: object;
+    name: string;
+
+    constructor(file: object, name: string = '') {
+        this.file = file;
+        this.name = name;
+    }
+};
+
+export class QiniuUpload implements UploadInterface {
+
+    readonly REMOTE_URL: string = '//up.qbox.me';
 
     private fetchToken;
 
@@ -8,7 +19,7 @@ class QiniuUpload implements UploadInterface {
         this.fetchToken = callback;
     }
 
-    upload(file, key: string = '') {
+    upload(file, key: string = ''): Promise<{}> {
         return new Promise((resolve, reject) => {
             if (typeof this.fetchToken !== 'function') {
                 throw new Error('please set fetch token callback.');
@@ -34,6 +45,13 @@ class QiniuUpload implements UploadInterface {
             });
         });
     }
-}
 
-export default QiniuUpload;
+    multiupload(files: Array<UploadFile>): Promise<{}> {
+
+        let farray = files.map((file:UploadFile) => {
+            return this.upload(file.file, file.name);
+        });
+
+        return Promise.all(farray);
+    }
+};

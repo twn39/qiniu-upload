@@ -7,7 +7,7 @@
     "declaration": true,
     "declarationDir": "src",
     "outDir": "src",
-    "lib": ["ES2015"]
+    "lib": ["es2015"]
   },
   "include": [
     "src/**/*"
