@@ -3,10 +3,10 @@
     "module": "ES2015",
     "target": "es5",
     "removeComments": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": true,
     "declarationDir": "src",
-    "outDir": "dist",
+    "outDir": "src",
     "lib": ["ES2015"]
   },
   "include": [

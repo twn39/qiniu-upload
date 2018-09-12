@@ -4,3 +4,4 @@ declare class QiniuUpload implements UploadInterface {
     setFetchTokenCallback(callback: any): void;
     upload(file: any, key?: string): Promise<{}>;
 }
+export default QiniuUpload;

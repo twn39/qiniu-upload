@@ -35,3 +35,5 @@ class QiniuUpload implements UploadInterface {
         });
     }
 }
+
+export default QiniuUpload;

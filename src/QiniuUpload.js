@@ -35,3 +35,4 @@ var QiniuUpload = /** @class */ (function () {
     };
     return QiniuUpload;
 }());
+export default QiniuUpload;
