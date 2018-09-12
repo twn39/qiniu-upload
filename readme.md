@@ -28,10 +28,12 @@ yarn add @twn39/qiniu-upload
 **模块化导入** (webpack)
 
 ```js
-import QiniuUpload from '@twn39/qiniu-upload';
+import {QiniuUpload, UploadFile} from '@twn39/qiniu-upload';
 ```
 
 #### 使用
+
+**单文件上传**：
 
 ```js
 const fileUpload = new QiniuUpload();
@@ -49,13 +51,32 @@ button.addEventListener('click', () => {
 });
 ```
 
+**多文件上传**
+
+```js
+let files = [];
+files.push(new UploadFile(document.querySelector('.file').files[0]));
+files.push(new UploadFile(document.querySelector('.file1').files[0]));
+files.push(new UploadFile(document.querySelector('.file2').files[0]));
+console.log(files);
+qiniuUpload.multiupload(files).then(data => {
+    console.log(data);
+});
+```
+
 #### 方法
 
 ```ts
+declare class UploadFile {
+    file: object;
+    name: string;
+    constructor(file: object, name?: string);
+}
 declare class QiniuUpload implements UploadInterface {
-    private REMOTE_URL;
+    readonly REMOTE_URL: string;
     private fetchToken;
     setFetchTokenCallback(callback: any): void;
     upload(file: any, key?: string): Promise<{}>;
+    multiupload(files: Array<UploadFile>): Promise<{}>;
 }
 ```
