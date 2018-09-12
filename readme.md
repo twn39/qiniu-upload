@@ -17,6 +17,20 @@ npm i @twn39/qiniu-upload
 yarn add @twn39/qiniu-upload
 ```
 
+### 加载
+
+**裸插件**（无模块加载器）
+
+```js
+<script src="node_modules/@twn39/qiniu-upload/dist/QiniuUpload.js"></script>
+```
+
+**模块化导入** (webpack)
+
+```js
+import QiniuUpload from '@twn39/qiniu-upload';
+```
+
 #### 使用
 
 ```js
